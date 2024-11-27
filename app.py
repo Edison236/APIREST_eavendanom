@@ -10,11 +10,12 @@ load_dotenv()
 app = Flask(__name__, template_folder="views")
 
 # app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{os.getenv('DB_USERNAME')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
-# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://root:KPcLrzsEngDJeXHahVjDdPwNKYcMzGEq@autorack.proxy.rlwy.net:25862/railway"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# db.init_app(app)
-# init_db(app)
-# app.register_blueprint(guarderia_bp)
+db.init_app(app)
+init_db(app)
+app.register_blueprint(guarderia_bp)
 
 
 @app.route("/")
